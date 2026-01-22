@@ -1,0 +1,24 @@
+# OS junk files
+[Tt]humbs.db
+*.DS_Store 
+
+# Visual Studio directories
+.vs/
+bin/
+obj/
+[Dd]ebug*/
+[Rr]elease*/
+[Pp]ackages/
+
+# Rider directories
+.idea/
+
+# Visual Studio files, if not excluded by the above
+*.user
+*.userprefs
+
+# Rider directories
+.idea/
+
+# Merge tool files
+*.orig
