@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Width="700"
+        Height="600"
+        x:Class="MontiorPowerTests.MainWindow"
+        Title="MontiorPowerTests">
+	<Grid >
+		<Grid.Styles>
+			<Style Selector="Button">
+				<Setter Property="Width" Value="300"></Setter>
+				<Setter Property="Height" Value="80"></Setter>
+				<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+				<Setter Property="VerticalAlignment" Value="Center"></Setter>
+				<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+				<Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+				<Setter Property="FontWeight" Value="Bold"></Setter>
+			</Style>
+		</Grid.Styles>
+		<Grid.Styles>
+			<Style Selector="TextBlock">
+				<Setter Property="Height" Value="80"></Setter>
+				<Setter Property="Width" Value="300"></Setter>
+				<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+				<Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+				<Setter Property="TextAlignment" Value="Center"></Setter>
+				<Setter Property="Padding" Value="5"></Setter>
+				<Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
+			</Style>
+		</Grid.Styles>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="350"></ColumnDefinition>
+			<ColumnDefinition Width="350"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Row="0" Grid.Column="0">Native message operations that exhibit the issue</TextBlock>
+		<Button Grid.Row="1" Grid.Column="0" Click="BroadcastMessageButtonOnClick">BroadcastSystemMessage</Button>
+		<Button Grid.Row="2" Grid.Column="0" Click="SendMessageToTopLevelWindowsButtonOnClick">SendMessage to top level windows</Button>
+		<Button Grid.Row="3" Grid.Column="0" Click="PostMessageButtonOnClick">PostMessage</Button>
+		<TextBlock Grid.Row="0" Grid.Column="1">Native message operations that work as expected</TextBlock>
+		<Button Grid.Row="1" Grid.Column="1" Click="SendMessageButtonOnClick">SendMessage to temp window</Button>
+		<Button Grid.Row="2" Grid.Column="1" Click="DefaultWindowProcButtonOnClick">DefWindowProc from desktop window</Button>
+		
+		<TextBlock Width="650" Height="180" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="0">Reproduction notes. On all devices we have tested reproduction is pretty reliable. It can be done easily with a mouse but I believe any HID device will work. Press the button on the left and, as your monitor is turning off, move the mouse around. Instead of the monitor rewaking instantly the screen will flicker several times before restoring. Continuing to move your mouse around may cause move flickering to occur.</TextBlock>
+	</Grid>
+</Window>
